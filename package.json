@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type":"module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/molfar-goodman/firerain.git"
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/molfar-goodman/firerain/issues"
   },
-  "homepage": "https://github.com/molfar-goodman/firerain#readme"
+  "homepage": "https://github.com/molfar-goodman/firerain#readme",
+  "dependencies": {
+    "simple-ddos": "^2.0.4"
+  }
 }
