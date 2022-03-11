@@ -30,7 +30,7 @@ function worker(host, amount, interval) {
           isFailedRequest = false
         })
     }
-    // console.log(`${host} Errors: ${red(errors)} Success: ${blue(success)}`)
+    console.log(`${host} Errors: ${red(errors)} Success: ${blue(success)}`)
   }, interval)
 }
 
