@@ -5,8 +5,8 @@ let threads = process.env.THREADS || 10
 let requests = process.env.REQUESTS || 100
 let interval = process.env.INTERVAL || 1500
 
-console.log(`Start for ${process.env.FACKED_URL}`)
+console.log(`Start for ${process.env.FUCKED_URL}`)
 
 
 // Launches 10 threads of sending 100 requests every 1.5s
-simpleDDoS(threads, process.env.FACKED_URL, requests, interval)
+simpleDDoS(threads, process.env.FUCKED_URL, requests, interval)
