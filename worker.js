@@ -8,30 +8,34 @@ let errors = 0,
 
 function worker(host, amount, interval) {
   // Send requests with interval
+  let rCount = 0
   setInterval(() => {
     for (let i = 0; i < amount; i++) {
       let isFailedRequest = false
-
+      rCount++
+      if(rCount<2000)
       fetch(host)
         .catch((err) => {
           if (err) {
             if (!errorMessages.includes(err.code)) {
               errorMessages.push(err.code)
-              console.log(`${host} Error: ${red(err)}`)
+              // console.log(`${host} Error: ${red(err)}`)
             }
+            rCount--
             isFailedRequest = true
             errors++
           }
         })
-        .then((resp) => {
+        .then(() => {
           if (!isFailedRequest) {
             success++
-            console.log(resp.text())
+            rCount--
+            // console.log(resp.text())
           }
           isFailedRequest = false
         })
     }
-    console.log(`${host} Errors: ${red(errors)} Success: ${blue(success)}`)
+    console.log(`${host} ${rCount} Errors: ${red(errors)} Success: ${blue(success)}`)
   }, interval)
 }
 
