@@ -35,8 +35,14 @@ function worker(host, amount, interval) {
           isFailedRequest = false
         })
     }
+
     console.log(`${host} ${rCount} Errors: ${red(errors)} Success: ${blue(success)}`)
   }, interval)
 }
 
+try {
 worker(process.argv[2], process.argv[3], process.argv[4])
+} catch (e) {
+  worker(process.argv[2], process.argv[3], process.argv[4])  
+}
+
