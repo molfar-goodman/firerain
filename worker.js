@@ -17,15 +17,16 @@ function worker(host, amount, interval) {
           if (err) {
             if (!errorMessages.includes(err.code)) {
               errorMessages.push(err.code)
-              // console.log(`{host} Error: ${red(err)}`)
+              console.log(`${host} Error: ${red(err)}`)
             }
             isFailedRequest = true
             errors++
           }
         })
-        .then(() => {
+        .then((resp) => {
           if (!isFailedRequest) {
             success++
+            console.log(resp.text())
           }
           isFailedRequest = false
         })
